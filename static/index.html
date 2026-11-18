@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>离线协同表格</title>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<div id="login" class="modal">
+  <div class="card">
+    <h1>离线协同表格</h1>
+    <p class="sub" id="loginHint">第一次进入的人将成为上传人（可导入 / 导出）</p>
+    <input id="nameInput" placeholder="你的姓名" maxlength="20" autocomplete="off">
+    <button id="enterBtn">进入</button>
+    <p class="tip">仅局域网内可访问，数据不上外网</p>
+  </div>
+</div>
+
+<div id="app" hidden>
+  <header class="topbar">
+    <div class="left">
+      <span class="dot" id="connDot"></span>
+      <input id="title" class="title" spellcheck="false" readonly>
+      <span class="ver" id="ver">v0</span>
+    </div>
+    <div class="right">
+      <div class="users" id="users"></div>
+      <span class="role" id="roleTag"></span>
+      <button id="importBtn" class="ghost" hidden>导入 Excel / Word</button>
+      <button id="exportXlsx" class="primary" hidden>导出 Excel</button>
+      <button id="exportDocx" class="ghost" hidden>导出 Word</button>
+      <input type="file" id="fileInput" accept=".xlsx,.docx" hidden>
+    </div>
+  </header>
+
+  <div class="toolbar">
+    <button data-act="addrow" class="ghost">＋行</button>
+    <button data-act="addcol" class="ghost">＋列</button>
+    <span class="hint">双击或直接输入编辑 · Enter 提交 · Tab 右移 · 他人编辑处显示彩色边框</span>
+    <span class="saved" id="saved"></span>
+  </div>
+
+  <div class="tabs" id="tabs"></div>
+
+  <div class="grid-wrap" id="gridWrap">
+    <table class="grid" id="grid"></table>
+  </div>
+
+  <div class="watermark" id="watermark"></div>
+  <div class="toasts" id="toasts"></div>
+</div>
+
+<script src="/static/app.js"></script>
+</body>
+</html>

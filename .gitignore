@@ -1,0 +1,22 @@
+# 运行时数据（勿提交：含填写内容与模板原件）
+data/
+
+# 便携包 / 打包产物
+dist/
+dist_exe/
+build/
+offline-sheet-win64.zip
+
+# 打包临时产物（若使用 PyInstaller）
+*.spec
+
+# 本地端口覆盖
+port.txt
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# 工作区私有数据
+.workbuddy/
